@@ -1,0 +1,58 @@
+
+.container{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 0 10px;
+  @media(max-width: 500px){
+flex-direction: row;
+padding-bottom: 12px;
+  }
+
+}
+.circle{
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  background-color: #3db53dfc;
+  border: 5px solid #3db53dfc ;
+  transition: all 0.3s ease;
+
+}
+.selected .circle{
+  background-color: #f7f9f7fc;
+  font-weight: 600;
+  }
+
+  .container .circleWrapper{
+position: relative;
+
+  }
+ .container:not(:last-child) >.circleWrapper:after {
+    content: "";
+    width: 7rem;
+    height: 5px;
+    background-color: #3db53dfc;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: -10;
+@media(max-width: 500px){
+  transform: rotate(90deg);
+  width: 2rem;
+  margin: 0;
+  top: 90%;
+  left: 0.2em;
+}
+  }
+
+  .container:not(:last-child).selected >.circleWrapper::after ,  .container:not(:last-child).selected  ~ .container:not(:last-child) >.circleWrapper::after {
+    height: 1px;
+  }
